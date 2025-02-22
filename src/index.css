@@ -41,6 +41,7 @@
   --gray-400: hsl(214 13% 55%);
   --gray-500: hsl(218 15% 65%);
   --gray-600: hsl(215 18% 34%);
+  --gray-700: hsl(217 23% 27%);
   --gray-900: hsl(221 43% 11%);
   --grey: hsl(0 0% 50%);
   --success: hsl(157 59% 40%);
@@ -85,6 +86,7 @@
   --color-gray-400: var(--gray-400);
   --color-gray-500: var(--gray-500);
   --color-gray-600: var(--gray-600);
+  --color-gray-700: var(--gray-700);
   --color-gray-900: var(--gray-900);
   --color-success: var(--success);
   --color-success-background: var(--success-background);
@@ -98,6 +100,11 @@
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
+
+  --shadow-xs: 0px 1px 2px 0px rgba(16, 24, 40, 0.05);
+  --shadow-dialog:
+    0px 20px 24px -4px rgba(16, 24, 40, 0.08),
+    0px 8px 8px -4px rgba(16, 24, 40, 0.03);
 }
 
 @layer base {
@@ -106,16 +113,7 @@
     @apply overscroll-none;
   }
   * {
-    @apply border-border outline-primary/50;
-  }
-  body {
-    @apply bg-background text-foreground;
-  }
-}
-
-@layer base {
-  * {
-    @apply border-border outline-ring/50;
+    @apply border-border outline-primary/70;
   }
   body {
     @apply bg-background text-foreground;

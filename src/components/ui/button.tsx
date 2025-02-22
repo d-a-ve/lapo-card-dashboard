@@ -12,7 +12,8 @@ const buttonVariants = cva(
   {
     variants: {
       intent: {
-        primary: "bg-primary border border-primary hover:bg-primary-300 hover:text-primary",
+        primary:
+          "bg-primary border border-primary hover:bg-primary-300 hover:text-primary",
       },
       size: {
         sm: "text-xs py-2",
@@ -58,7 +59,7 @@ interface IButtonProps extends ButtonVariants {
 
 export type ButtonProps = IButtonProps & LabelAndChildren;
 
-function Button({
+export function Button({
   isLoading,
   disabled,
   leftIcon,
@@ -116,5 +117,3 @@ function Button({
     </button>
   );
 }
-
-export default Button;

@@ -6,16 +6,15 @@ import React, {
 } from "react";
 import { twMerge } from "tailwind-merge";
 
-export const inputVariants = cva(
-  "relative px-3 py-2 flex items-center justify-center gap-2 rounded-lg transition-all select-none",
+const inputVariants = cva(
+  "relative px-3 py-2 flex items-center justify-center gap-2 rounded-lg transition-all select-none shadow-xs focus-within:ring-2 focus-within:ring-primary/70 focus-within:ring-offset-1",
   {
     variants: {
       intent: {
-        default:
-          "border-solid border border-brand-input-border text-brand-title bg-white",
+        default: "border-solid border border-grey-300 text-foreground bg-white",
       },
       inputSize: {
-        sm: "text-sm py-2",
+        sm: "text-sm py-2.5",
         md: "text-base py-3",
         lg: "text-lg py-4",
       },
@@ -41,7 +40,6 @@ interface TextInputProps extends InputVariants {
   type?: string;
   leftIcon?: React.ReactNode;
   rightIcon?: React.ReactNode;
-  placeHolder?: string;
   isPasswordVisible?: boolean;
 }
 
@@ -55,7 +53,7 @@ export const Input = forwardRef<HTMLInputElement, TextInputProps>(
       isLoading,
       disabled,
       onChange,
-      placeHolder,
+      placeholder,
       intent,
       inputSize,
       ...props
@@ -65,7 +63,7 @@ export const Input = forwardRef<HTMLInputElement, TextInputProps>(
     const classNames = twMerge(
       inputVariants({ intent, inputSize }),
       className,
-      disabled || isLoading ? "cursor-not-allowed border opacity-[.8]" : "",
+      disabled || isLoading ? "cursor-not-allowed border opacity-80" : "",
     );
     return (
       <div className={classNames}>
@@ -74,10 +72,10 @@ export const Input = forwardRef<HTMLInputElement, TextInputProps>(
           onChange={onChange}
           type={type}
           className={twMerge(
-            "hide-caret placeholder:text-brand-input-placeholder/90 w-full bg-transparent outline-none",
+            "hide-caret w-full bg-transparent outline-none placeholder:text-grey",
             (disabled ?? isLoading) ? "cursor-not-allowed" : "",
           )}
-          placeholder={placeHolder ?? "Placeholder"}
+          placeholder={placeholder ?? "Placeholder"}
           disabled={isLoading ?? disabled}
           ref={ref}
           {...props}

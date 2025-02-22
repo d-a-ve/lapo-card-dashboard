@@ -5,6 +5,7 @@ import { ChevronDown } from "lucide-react";
 import React, {
   ComponentPropsWithRef,
   ReactNode,
+  RefCallback,
   RefObject,
   useRef,
   useState,
@@ -34,13 +35,13 @@ type MergedSelectTriggerProps = React.ComponentPropsWithRef<
   SelectTriggerProps;
 
 const SelectTrigger = React.forwardRef<
-  React.ElementRef<typeof SelectPrimitive.Trigger>,
+  React.ComponentRef<typeof SelectPrimitive.Trigger>,
   MergedSelectTriggerProps & { className?: string }
 >(({ className, rightIcon, children, ...props }, ref) => (
   <SelectPrimitive.Trigger
     ref={ref}
     className={cn(
-      "border-input-border relative flex w-full items-center justify-between gap-4 rounded-lg border bg-transparent px-4 py-2 text-sm font-medium text-foreground transition-all select-none disabled:cursor-not-allowed disabled:opacity-50 data-[placeholder]:font-medium md:px-4 md:py-2.5 md:text-base",
+      "border-grey-300 relative flex w-full items-center justify-between gap-4 rounded-lg border bg-transparent px-4 py-2 text-sm text-foreground transition-all select-none disabled:cursor-not-allowed disabled:opacity-50 md:px-4 md:py-2.5 data-[placeholder]:[&_span]:text-gray-500",
       className,
     )}
     {...props}
@@ -54,7 +55,7 @@ const SelectTrigger = React.forwardRef<
 SelectTrigger.displayName = SelectPrimitive.Trigger.displayName;
 
 const SelectContent = React.forwardRef<
-  React.ElementRef<typeof SelectPrimitive.Content>,
+  React.ComponentRef<typeof SelectPrimitive.Content>,
   React.ComponentPropsWithoutRef<typeof SelectPrimitive.Content> & {
     className?: string;
     position?: "item-aligned" | "popper";
@@ -99,7 +100,7 @@ const SelectContent = React.forwardRef<
 SelectContent.displayName = SelectPrimitive.Content.displayName;
 
 const SelectLabel = React.forwardRef<
-  React.ElementRef<typeof SelectPrimitive.Label>,
+  React.ComponentRef<typeof SelectPrimitive.Label>,
   React.ComponentPropsWithoutRef<typeof SelectPrimitive.Label> & {
     className?: string;
   }
@@ -115,7 +116,7 @@ const SelectLabel = React.forwardRef<
 SelectLabel.displayName = SelectPrimitive.Label.displayName;
 
 const SelectItem = React.forwardRef<
-  React.ElementRef<typeof SelectPrimitive.Item>,
+  React.ComponentRef<typeof SelectPrimitive.Item>,
   React.ComponentPropsWithoutRef<typeof SelectPrimitive.Item> & {
     className?: string;
   }
@@ -123,7 +124,7 @@ const SelectItem = React.forwardRef<
   <SelectPrimitive.Item
     ref={ref}
     className={cn(
-      "hover:bg-grey-100 focus:bg-grey-100 relative flex w-full cursor-default items-center justify-between overflow-hidden rounded p-1.5 text-left text-sm text-foreground duration-150 outline-none select-none data-[disabled]:pointer-events-none data-[disabled]:opacity-50 data-[state=checked]:text-primary",
+      "relative flex w-full cursor-default items-center justify-between overflow-hidden rounded p-1.5 text-left text-sm text-foreground duration-150 outline-none select-none hover:bg-primary-200 focus:bg-primary-200 data-[disabled]:pointer-events-none data-[disabled]:opacity-50 data-[state=checked]:bg-primary-300",
       {
         className,
       },
@@ -136,7 +137,7 @@ const SelectItem = React.forwardRef<
 SelectItem.displayName = SelectPrimitive.Item.displayName;
 
 const SelectSeparator = React.forwardRef<
-  React.ElementRef<typeof SelectPrimitive.Separator>,
+  React.ComponentRef<typeof SelectPrimitive.Separator>,
   React.ComponentPropsWithoutRef<typeof SelectPrimitive.Separator> & {
     className?: string;
   }
@@ -152,6 +153,7 @@ type SelectProps = {
   placeholder: string;
   options: string[];
   className?: string;
+  ref: RefObject<HTMLButtonElement> | RefCallback<HTMLButtonElement>;
 };
 
 export function SelectInput({
@@ -164,6 +166,7 @@ export function SelectInput({
   value,
   triggerClassName,
   contentClassName,
+  ref,
 }: SelectProps & {
   defaultValue?: string;
   value?: string;
@@ -180,12 +183,13 @@ export function SelectInput({
       >
         <SelectTrigger
           className={cn("overflow-clip [&_span]:truncate", triggerClassName)}
+          ref={ref}
         >
           <SelectValue placeholder={placeholder} />
         </SelectTrigger>
         <SelectContent className={contentClassName}>
           {options.map((value) => (
-            <SelectItem key={value} value={value}>
+            <SelectItem key={value} value={value} className="capitalize">
               {value}
             </SelectItem>
           ))}
@@ -238,7 +242,7 @@ export function SelectSearchableInput({
             aria-controls="select-content"
             ref={buttonRef}
             className={cn(
-              "border-select-icon relative flex w-full items-center justify-between gap-4 overflow-clip rounded-lg border border-solid bg-white px-4 py-2 text-sm font-medium text-foreground shadow-xs transition-all select-none disabled:cursor-not-allowed disabled:opacity-50 data-[placeholder]:font-medium md:px-4 md:py-2.5 md:text-base",
+              "border-select-icon relative flex w-full items-center justify-between gap-4 overflow-clip rounded-lg border border-solid bg-white px-4 py-2 text-sm text-foreground shadow-xs transition-all select-none disabled:cursor-not-allowed disabled:opacity-50 data-[placeholder]:font-medium md:px-4 md:py-2.5 md:text-base",
               className,
             )}
           >

@@ -8,7 +8,7 @@ export function RootLayout({ children }: { children: ReactNode }) {
   return (
     <div className="bg-background">
       <div className="mx-auto max-w-[1440px]">
-        <aside className="fixed top-0 h-screen w-full max-w-[230px] overflow-hidden overflow-y-auto border-r border-r-[#dededf] bg-white px-3 pt-7 pb-8 grid grid-rows-[auto_1fr_auto]">
+        <aside className="fixed top-0 grid h-screen w-full max-w-[230px] grid-rows-[auto_1fr_auto] overflow-hidden overflow-y-auto border-r border-r-[#dededf] bg-white px-3 pt-7 pb-8">
           <div className="max-w-28">
             <LapoBankLogo />
           </div>
@@ -37,6 +37,28 @@ export function RootLayout({ children }: { children: ReactNode }) {
           <div className="px-5 py-2.5">{children}</div>
         </main>
       </div>
+    </div>
+  );
+}
+
+export function PageLayout({
+  children,
+  title,
+  subtitle,
+  className,
+}: {
+  children: ReactNode;
+  className?: string;
+  title: string;
+  subtitle?: string;
+}) {
+  return (
+    <div className={className}>
+      <div className="space-y-1">
+        <h1 className="text-lg font-bold">{title}</h1>
+        {subtitle && <p className="text-sm">{subtitle}</p>}
+      </div>
+      {children}
     </div>
   );
 }
