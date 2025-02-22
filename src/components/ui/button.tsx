@@ -8,21 +8,16 @@ import {
 } from "react";
 
 const buttonVariants = cva(
-  "relative px-4 py-3 flex items-center justify-center gap-5 h-[40px] rounded-lg text-white font-medium leading-[1.2em] disabled:bg-opacity-40 disabled:cursor-not-allowed transition-all duration-150 ease-in",
+  "relative px-4 py-3 flex items-center justify-center rounded-sm text-white font-medium leading-[1.2em] disabled:bg-opacity-40 disabled:cursor-not-allowed transition-all duration-150 ease-in cursor-pointer",
   {
     variants: {
       intent: {
-        primary:
-          "bg-brand-primary border border-brand-primary hover:bg-brand-primary-hover focus-visible:bg-brand-primary-hover",
-        secondary:
-          "bg-transparent border border-brand-input-border text-brand-gray-800 hover:bg-brand-country-card-border focus-visible:bg-brand-country-card-border hover:text-brand-title focus-visible:text-brand-title active:text-brand-title",
-        white:
-          "bg-white border border-white text-brand-primary hover:bg-brand-button-border focus-visible:bg-brand-button-border",
+        primary: "bg-primary border border-primary hover:bg-primary-300 hover:text-primary",
       },
       size: {
-        sm: "text-sm py-2",
-        md: "text-base py-3",
-        lg: "text-lg py-4",
+        sm: "text-xs py-2",
+        md: "text-sm py-2.5",
+        lg: "text-base py-3",
       },
     },
     defaultVariants: {
@@ -90,7 +85,7 @@ function Button({
           xmlns="http://www.w3.org/2000/svg"
           className={cn(
             "animate-spin transition delay-[.2]",
-            isLoading ? "visible opacity-1" : "hidden opacity-0",
+            isLoading ? "visible opacity-100" : "hidden opacity-0",
           )}
         >
           <path
@@ -102,7 +97,7 @@ function Button({
       <p
         className={cn(
           "flex items-center justify-center gap-2",
-          isLoading ? "opacity-0" : "opacity-1",
+          isLoading ? "opacity-0" : "opacity-100",
           contentClassName,
         )}
       >

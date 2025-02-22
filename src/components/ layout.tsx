@@ -1,28 +1,36 @@
 import { ReactNode } from "react";
-import AccountIcon from "./icons/account-icon";
 import { BellIcon } from "./icons/bell-icon";
+import { UserIcon } from "./icons/user-icon";
+import { Nav } from "./nav";
 import { CardInfraLogo, LapoBankLogo } from "./ui/logo";
 
 export function RootLayout({ children }: { children: ReactNode }) {
   return (
     <div className="bg-background">
       <div className="mx-auto max-w-[1440px]">
-        <aside className="fixed top-0 h-screen w-full max-w-[230px] overflow-hidden overflow-y-auto border-r border-r-[#dededf] bg-white px-3 pt-7 pb-8">
-          <LapoBankLogo />
-          <div className="space-y-1">
-            <p className="text-[0.53rem] font-medium text-[#808080]">POWERED BY</p>
-            <CardInfraLogo />
+        <aside className="fixed top-0 h-screen w-full max-w-[230px] overflow-hidden overflow-y-auto border-r border-r-[#dededf] bg-white px-3 pt-7 pb-8 grid grid-rows-[auto_1fr_auto]">
+          <div className="max-w-28">
+            <LapoBankLogo />
+          </div>
+          <div className="mt-8 mb-12">
+            <Nav />
+          </div>
+          <div className="space-y-1 pl-7">
+            <p className="text-[0.53rem] font-medium text-grey">POWERED BY</p>
+            <div className="max-w-24">
+              <CardInfraLogo />
+            </div>
           </div>
         </aside>
-        <main className="ml-[230px]">
-          <div className="flex items-center gap-4 border-b border-b-[#dededf] bg-white px-5 py-2 justify-between">
+        <main className="ml-[230px] grid min-h-screen grid-rows-[auto_1fr]">
+          <div className="sticky top-0 flex w-full items-center justify-between gap-4 border-b border-b-[#dededf] bg-white px-5 py-2">
             <p>Breadcrumbs here</p>
             <div className="flex items-center gap-4">
               <button className="p-2.5 text-2xl">
                 <BellIcon />
               </button>
-              <button className="rounded-full border border-gray-600 bg-gray-100 p-2 text-2xl">
-                <AccountIcon />
+              <button className="rounded-full border border-gray-600 bg-gray-200 p-2 text-2xl">
+                <UserIcon />
               </button>
             </div>
           </div>

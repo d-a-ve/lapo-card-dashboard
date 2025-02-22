@@ -1,7 +1,8 @@
 @import "tailwindcss";
 
-@plugin "tailwindcss-animate";
+@custom-variant dark (&:is(.dark *));
 
+@plugin "tailwindcss-animate";
 
 :root {
   font-family: "Satoshi", sans-serif;
@@ -33,10 +34,15 @@
   --input: hsl(0 0% 89.8%);
   --ring: hsl(0 0% 3.9%);
   --gray-50: hsl(0 0% 100%);
-  --gray-100: hsl(220 22% 96%);
+  --gray-100: hsl(0 0% 89%);
+  --gray-150: hsl(0 0% 96%);
+  --gray-200: hsl(220 22% 96%);
   --gray-300: hsl(216 16% 84%);
+  --gray-400: hsl(214 13% 55%);
+  --gray-500: hsl(218 15% 65%);
   --gray-600: hsl(215 18% 34%);
   --gray-900: hsl(221 43% 11%);
+  --grey: hsl(0 0% 50%);
   --success: hsl(157 59% 40%);
   --success-background: hsl(158 52% 96%);
   --pending: hsl(29 81% 52%);
@@ -70,9 +76,14 @@
   --color-border: var(--border);
   --color-input: var(--input);
   --color-ring: var(--ring);
+  --color-grey: var(--grey);
   --color-gray-50: var(--gray-50);
   --color-gray-100: var(--gray-100);
+  --color-gray-150: var(--gray-150);
+  --color-gray-200: var(--gray-200);
   --color-gray-300: var(--gray-300);
+  --color-gray-400: var(--gray-400);
+  --color-gray-500: var(--gray-500);
   --color-gray-600: var(--gray-600);
   --color-gray-900: var(--gray-900);
   --color-success: var(--success);
@@ -87,6 +98,19 @@
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
+}
+
+@layer base {
+  html,
+  body {
+    @apply overscroll-none;
+  }
+  * {
+    @apply border-border outline-primary/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
 }
 
 @layer base {
