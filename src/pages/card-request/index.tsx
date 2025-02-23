@@ -62,7 +62,7 @@ export function CardRequestPage() {
                 <TableCell className="text-center">{batch}</TableCell>
                 <TableCell className="text-center">{dateRequested}</TableCell>
                 <TableCell className="text-center">
-                  <CardRequestStatus status={status} />
+                  <CardRequestStatus status={status} className="mx-auto" />
                 </TableCell>
                 <TableCell className="text-center">
                   <Link

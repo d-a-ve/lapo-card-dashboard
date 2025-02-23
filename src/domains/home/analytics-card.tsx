@@ -20,7 +20,7 @@ export function AnalyticsCard({
         {icon}
         <h3 className="text-sm font-medium text-foreground/[0.56]">{title}</h3>
       </div>
-      <div className="flex items-center justify-between gap-2">
+      <div className="flex items-center justify-between gap-2 flex-wrap">
         <p className="text-2xl font-bold">{value}</p>
         {insights}
       </div>

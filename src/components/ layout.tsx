@@ -9,7 +9,7 @@ export function RootLayout({ children }: { children: ReactNode }) {
   return (
     <div className="bg-background">
       <div className="mx-auto max-w-[1440px]">
-        <aside className="fixed top-0 grid h-screen w-full max-w-[230px] grid-rows-[auto_1fr_auto] overflow-hidden overflow-y-auto border-r border-r-[#dededf] bg-white px-3 pt-7 pb-8">
+        <aside className="fixed top-0 grid h-screen w-full max-w-[230px] grid-rows-[auto_1fr_auto] overflow-hidden overflow-y-auto border-r border-r-[#dededf] bg-white px-3 pt-7 pb-8 z-10">
           <div className="max-w-28">
             <LapoBankLogo />
           </div>
@@ -35,7 +35,7 @@ export function RootLayout({ children }: { children: ReactNode }) {
               </button>
             </div>
           </div>
-          <div className="px-5 py-2.5">{children}</div>
+          <div className="px-5 py-2.5 mb-8">{children}</div>
         </main>
       </div>
     </div>

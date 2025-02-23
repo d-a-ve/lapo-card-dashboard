@@ -29,9 +29,7 @@ export function Breadcrumbs() {
         <p className="leading-none duration-150 group-hover/back-breadcrumb:-translate-x-1">
           Back
         </p>
-        {/* <span className="text-sm"> */}
         {BREADCRUMBS_NAV_LINKS[splitPath[0]].icon}
-        {/* </span> */}
       </button>
       {splitPath.map((p, idx, arr) => (
         <div className="flex items-center gap-3">

@@ -6,7 +6,9 @@ import {
   CardPlusIcon,
   CardShiedIcon,
 } from "@/components/icons/card-icons";
+import { EnlargeIcon } from "@/components/icons/enlarge-icon";
 import { HourglassIcon } from "@/components/icons/hourglass-icon";
+import { URL_PATH_SEGMENTS } from "@/constants";
 import {
   AnalyticsCard,
   AnalyticsCardInsights,
@@ -15,6 +17,12 @@ import { DashboardCard } from "@/domains/home/dashboard-card";
 import { QuickAccessCard } from "@/domains/home/quick-access-card";
 import { formatInNGN } from "@/lib/utils";
 import { CircleAlert } from "lucide-react";
+import { Link } from "react-router";
+
+import { RecentCardRequestsTable } from "@/domains/card-request/recent-card-requests-table";
+import { CardStatusDistributionChart } from "@/domains/home/card-status-distribution-chart";
+import { MonthlyInsuranceChart } from "@/domains/home/monthly-insurance-chart";
+import { WeekIncomeChart } from "@/domains/home/week-income-chart";
 
 export function HomePage() {
   return (
@@ -127,26 +135,34 @@ export function HomePage() {
               </p>
             }
           />
-          <DashboardCard className="col-span-2 space-y-5">
-            <h3 className="text-lg font-medium">Monthly Insurance</h3>
-            <div>bar chart is here</div>
-          </DashboardCard>
-          <DashboardCard className="col-span-2 space-y-5">
-            <h3 className="text-lg font-medium">Recent Card Requests</h3>
-            <div>
-              table for this is here. Good day, please do i still have the
-              opprtunity to upgrade to premium package, i actually need the
-              certificate
-            </div>
-          </DashboardCard>
-          <DashboardCard className="col-span-2 space-y-5">
-            <h3 className="text-lg font-medium">This Week's income</h3>
-            <div>graph for this is here</div>
-          </DashboardCard>
-          <DashboardCard className="col-span-2 space-y-5">
-            <h3 className="text-lg font-medium">Card Status Distribution</h3>
-            <div>pie chart for this is here</div>
-          </DashboardCard>
+          <div className="col-span-2 space-y-2">
+            <DashboardCard className="space-y-5">
+              <h3 className="text-lg font-medium">Monthly Insurance</h3>
+              <MonthlyInsuranceChart />
+            </DashboardCard>
+            <DashboardCard className="space-y-5">
+              <h3 className="text-lg font-medium">This Week's income</h3>
+              <WeekIncomeChart />
+            </DashboardCard>
+          </div>
+          <div className="col-span-2 space-y-2">
+            <DashboardCard className="space-y-5">
+              <div className="flex items-center justify-between gap-4">
+                <h3 className="text-lg font-medium">Recent Card Requests</h3>
+                <Link
+                  to={`/${URL_PATH_SEGMENTS.CARD_REQUEST}`}
+                  className="text-lg text-gray-300"
+                >
+                  <EnlargeIcon />
+                </Link>
+              </div>
+              <RecentCardRequestsTable />
+            </DashboardCard>
+            <DashboardCard className="space-y-5">
+              <h3 className="text-lg font-medium">Card Status Distribution</h3>
+              <CardStatusDistributionChart />
+            </DashboardCard>
+          </div>
         </div>
       </div>
     </div>
