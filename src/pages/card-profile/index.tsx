@@ -20,6 +20,11 @@ import { Link } from "react-router";
 
 export default function CardProfilePage() {
   const [cardProfiles, setCardProfiles] = useState(CARD_PROFILES);
+  const [search, setSearch] = useState("");
+
+  const filteredCardRequests = cardProfiles.filter(({ cardName }) =>
+    cardName.toLowerCase().includes(search.toLowerCase()),
+  );
 
   return (
     <PageLayout
@@ -33,6 +38,8 @@ export default function CardProfilePage() {
           leftIcon={<Search className="size-5 stroke-grey" />}
           placeholder="Search by card name"
           className="w-full max-w-[18.25rem]"
+          value={search}
+          onChange={(e) => setSearch(e.target.value)}
         />
         <LinkButton
           href={`/${URL_PATH_SEGMENTS.CARD_PROFILE_CREATE}`}
@@ -59,7 +66,7 @@ export default function CardProfilePage() {
           </TableRow>
         </TableHeader>
         <TableBody>
-          {cardProfiles.map(
+          {filteredCardRequests.map(
             ({
               cardName,
               currency,

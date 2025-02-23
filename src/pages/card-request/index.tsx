@@ -12,9 +12,15 @@ import {
 import { CARD_REQUESTS, URL_PATH_SEGMENTS } from "@/constants";
 import { CardRequestStatus } from "@/domains/card-request/card-request-status";
 import { Search } from "lucide-react";
+import { useState } from "react";
 import { Link } from "react-router";
 
 export default function CardRequestPage() {
+  const [search, setSearch] = useState("");
+  const filteredCardRequests = CARD_REQUESTS.filter(({ branch }) =>
+    branch.toLowerCase().includes(search.toLowerCase()),
+  );
+
   return (
     <PageLayout
       className="space-y-2.5"
@@ -26,6 +32,8 @@ export default function CardRequestPage() {
         leftIcon={<Search className="size-5 stroke-grey" />}
         placeholder="Search by branch"
         className="w-full max-w-[18.25rem]"
+        value={search}
+        onChange={(e) => setSearch(e.target.value)}
       />
       <Separator />
       <Table>
@@ -45,7 +53,7 @@ export default function CardRequestPage() {
           </TableRow>
         </TableHeader>
         <TableBody>
-          {CARD_REQUESTS.map(
+          {filteredCardRequests.map(
             ({
               branch,
               initiator,
