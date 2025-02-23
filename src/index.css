@@ -22,6 +22,7 @@
   --primary-50: hsl(206 100% 97%);
   --primary-200: hsl(214 100% 97%);
   --primary-300: hsl(214 100% 90%);
+  --primary-400: hsl(214 100% 10%);
   --primary-700: hsl(218 80% 46%);
   --primary-foreground: hsl(0 0% 98%);
   --secondary: hsl(0 0% 96.1%);
@@ -74,6 +75,7 @@
   --color-primary-50: var(--primary-50);
   --color-primary-200: var(--primary-200);
   --color-primary-300: var(--primary-300);
+  --color-primary-400: var(--primary-400);
   --color-primary-700: var(--primary-700);
   --color-primary-foreground: var(--primary-foreground);
   --color-secondary: var(--secondary);
