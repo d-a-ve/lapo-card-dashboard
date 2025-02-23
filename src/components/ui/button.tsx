@@ -8,12 +8,12 @@ import {
 } from "react";
 
 const buttonVariants = cva(
-  "relative px-4 py-3 flex items-center justify-center rounded-sm text-white font-medium leading-[1.2em] disabled:bg-opacity-40 disabled:cursor-not-allowed transition-all duration-150 ease-in cursor-pointer",
+  "relative px-4 py-3 flex items-center justify-center rounded-sm text-white font-medium leading-[1.2em] disabled:bg-opacity-40 disabled:cursor-not-allowed transition-all duration-150 ease-in cursor-pointer disabled:opacity-50",
   {
     variants: {
       intent: {
         primary:
-          "bg-primary border border-primary hover:bg-primary-300 hover:text-primary",
+          "bg-primary border border-primary data-[disabled=false]:hover:bg-primary-300 data-[disabled=false]:hover:text-primary",
       },
       size: {
         sm: "text-xs py-2",
@@ -75,6 +75,7 @@ export function Button({
     <button
       type="button"
       disabled={(isLoading ?? disabled) || disabled}
+      data-disabled={(isLoading ?? disabled) || disabled}
       className={cn(buttonVariants(props), className)}
       {...props}
     >

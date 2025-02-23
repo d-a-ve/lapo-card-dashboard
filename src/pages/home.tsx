@@ -13,6 +13,7 @@ import {
 } from "@/domains/home/analytics-card";
 import { DashboardCard } from "@/domains/home/dashboard-card";
 import { QuickAccessCard } from "@/domains/home/quick-access-card";
+import { formatInNGN } from "@/lib/utils";
 import { CircleAlert } from "lucide-react";
 
 export function HomePage() {
@@ -102,7 +103,7 @@ export function HomePage() {
               </span>
             }
             title="Today's Revenue"
-            value={`${new Intl.NumberFormat(undefined, { currency: "NGN", style: "currency", currencyDisplay: "narrowSymbol", notation: "compact", compactDisplay: "short" }).format(9300000)}`}
+            value={`${formatInNGN(9300000)}`}
             insights={
               <AnalyticsCardInsights
                 change="negative"
