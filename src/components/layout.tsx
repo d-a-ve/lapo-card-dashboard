@@ -24,7 +24,7 @@ export function RootLayout({ children }: { children: ReactNode }) {
           </div>
         </aside>
         <main className="ml-[230px] grid min-h-screen grid-rows-[auto_1fr]">
-          <div className="sticky top-0 flex w-full items-center justify-between gap-4 border-b border-b-[#dededf] bg-white px-5 py-2">
+          <div className="sticky top-0 flex w-full items-center justify-between gap-4 border-b border-b-[#dededf] bg-white px-5 py-2 z-10">
             <Breadcrumbs />
             <div className="flex items-center gap-4">
               <button className="p-2.5 text-2xl">

@@ -321,7 +321,11 @@ export function CardProfileForm({
             </div>
           </DashboardCard>
           <div className="mt-9 max-w-[18.25rem]">
-            <Button type="submit" label="Create Profile" className="w-full" />
+            <Button
+              type="submit"
+              label={`${defaultValues ? "Save" : "Create"} Profile`}
+              className="w-full"
+            />
           </div>
         </form>
       </Form>
