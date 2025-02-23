@@ -1,7 +1,7 @@
-import { PageLayout } from "@/components/ layout";
+import { PageLayout } from "@/components/layout";
 import { CardProfileForm } from "@/domains/card-profile/profile-form";
 
-export function CardProfileCreatePage() {
+export default function CardProfileCreatePage() {
   return (
     <PageLayout
       title="Create Profile"

@@ -23,7 +23,7 @@ export function DeleteCardProfileDialog({
   return (
     <Dialog>
       <DialogTrigger asChild>{trigger}</DialogTrigger>
-      <DialogContent showClose={false}>
+      <DialogContent showClose={false} widthInRem={25}>
         <DialogHeader>
           <DialogTitle>Delete card profile</DialogTitle>
           <DialogDescription>

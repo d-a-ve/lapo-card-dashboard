@@ -1,13 +1,22 @@
+import { lazy } from "react";
 import { BrowserRouter, Outlet, Route, Routes } from "react-router";
-import { RootLayout } from "./components/ layout";
+import { RootLayout } from "./components/layout";
+import { Loadable } from "./components/loadable";
 import { URL_PATH_SEGMENTS } from "./constants";
-import { CardProfilePage } from "./pages/card-profile";
-import { CardProfileCreatePage } from "./pages/card-profile/create";
-import { CardProfileEditPage } from "./pages/card-profile/edit";
-import { CardRequestPage } from "./pages/card-request";
-import { CardRequestViewPage } from "./pages/card-request/view";
 import { Error404Page } from "./pages/error-404";
-import { HomePage } from "./pages/home";
+
+const CardProfilePage = Loadable(lazy(() => import("./pages/card-profile")));
+const CardProfileCreatePage = Loadable(
+  lazy(() => import("./pages/card-profile/create")),
+);
+const CardProfileEditPage = Loadable(
+  lazy(() => import("./pages/card-profile/edit")),
+);
+const CardRequestPage = Loadable(lazy(() => import("./pages/card-request")));
+const CardRequestViewPage = Loadable(
+  lazy(() => import("./pages/card-request/view")),
+);
+const HomePage = Loadable(lazy(() => import("./pages/home")));
 
 function App() {
   return (

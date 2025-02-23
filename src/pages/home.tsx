@@ -24,7 +24,7 @@ import { CardStatusDistributionChart } from "@/domains/home/card-status-distribu
 import { MonthlyInsuranceChart } from "@/domains/home/monthly-insurance-chart";
 import { WeekIncomeChart } from "@/domains/home/week-income-chart";
 
-export function HomePage() {
+export default function HomePage() {
   return (
     <div className="space-y-3">
       <h1 className="sr-only">Dashboard Overview Page</h1>

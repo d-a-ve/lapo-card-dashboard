@@ -1,10 +1,10 @@
-import { PageLayout } from "@/components/ layout";
 import { FileIcon } from "@/components/icons/file-icon";
 import { LoadingIcon } from "@/components/icons/loading-icon";
 import {
   PackageCheckIcon,
   PackageSendIcon,
 } from "@/components/icons/package-icon";
+import { PageLayout } from "@/components/layout";
 import { Button } from "@/components/ui/button";
 import {
   CARD_REQUEST_STATUS,
@@ -18,7 +18,7 @@ import { CircleCheckBig } from "lucide-react";
 import { useEffect, useState } from "react";
 import { useSearchParams } from "react-router";
 
-export function CardRequestViewPage() {
+export default function CardRequestViewPage() {
   const [isDownloaded, setIsDownloaded] = useState(false);
   const [requestStatus, setRequestStatus] = useState<
     "done" | "loading" | "error"

@@ -1,9 +1,9 @@
-import { PageLayout } from "@/components/ layout";
+import { PageLayout } from "@/components/layout";
 import { CARD_PROFILES } from "@/constants";
 import { CardProfileForm } from "@/domains/card-profile/profile-form";
 import { useSearchParams } from "react-router";
 
-export function CardProfileEditPage() {
+export default function CardProfileEditPage() {
   const [searchParams] = useSearchParams();
   const id = searchParams.get("id");
 

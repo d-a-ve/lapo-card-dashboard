@@ -123,6 +123,20 @@
   --shadow-dialog:
     0px 20px 24px -4px rgba(16, 24, 40, 0.08),
     0px 8px 8px -4px rgba(16, 24, 40, 0.03);
+
+  --animate-loader: loader 3s cubic-bezier(0, 0.51, 1, 0.7) infinite;
+
+  @keyframes loader {
+    0% {
+      translate: -100%;
+    }
+    80% {
+      translate: 150%;
+    }
+    100% {
+      translate: 200%;
+    }
+  }
 }
 
 @layer base {

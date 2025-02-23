@@ -1,4 +1,4 @@
-import { PageLayout } from "@/components/ layout";
+import { PageLayout } from "@/components/layout";
 import { Input } from "@/components/ui/input";
 import { Separator } from "@/components/ui/separator";
 import {
@@ -14,7 +14,7 @@ import { CardRequestStatus } from "@/domains/card-request/card-request-status";
 import { Search } from "lucide-react";
 import { Link } from "react-router";
 
-export function CardRequestPage() {
+export default function CardRequestPage() {
   return (
     <PageLayout
       className="space-y-2.5"

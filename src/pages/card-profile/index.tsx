@@ -1,6 +1,6 @@
-import { PageLayout } from "@/components/ layout";
 import { PencilIcon } from "@/components/icons/pencil-icon";
 import { TrashIcon } from "@/components/icons/trash-icon";
+import { PageLayout } from "@/components/layout";
 import { Input } from "@/components/ui/input";
 import { LinkButton } from "@/components/ui/link-button";
 import { Separator } from "@/components/ui/separator";
@@ -18,7 +18,7 @@ import { PlusIcon, Search } from "lucide-react";
 import { useState } from "react";
 import { Link } from "react-router";
 
-export function CardProfilePage() {
+export default function CardProfilePage() {
   const [cardProfiles, setCardProfiles] = useState(CARD_PROFILES);
 
   return (
