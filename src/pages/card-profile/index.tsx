@@ -13,10 +13,14 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import { CARD_PROFILES, URL_PATH_SEGMENTS } from "@/constants";
+import { DeleteCardProfileDialog } from "@/domains/card-profile/delete-card-profile-dialog";
 import { PlusIcon, Search } from "lucide-react";
+import { useState } from "react";
 import { Link } from "react-router";
 
 export function CardProfilePage() {
+  const [cardProfiles, setCardProfiles] = useState(CARD_PROFILES);
+
   return (
     <PageLayout
       className="space-y-2.5"
@@ -55,7 +59,7 @@ export function CardProfilePage() {
           </TableRow>
         </TableHeader>
         <TableBody>
-          {CARD_PROFILES.map(
+          {cardProfiles.map(
             ({
               cardName,
               currency,
@@ -72,9 +76,19 @@ export function CardProfilePage() {
                 <TableCell className="text-center">{dateCreated}</TableCell>
                 <TableCell className="text-center">
                   <div className="flex items-center justify-center gap-2">
-                    <button className="cursor-pointer rounded-lg p-1 text-base text-gray-600 hover:text-red-500">
-                      <TrashIcon />
-                    </button>
+                    <DeleteCardProfileDialog
+                      trigger={
+                        <button className="cursor-pointer rounded-lg p-1 text-base text-gray-600 hover:text-red-500">
+                          <TrashIcon />
+                        </button>
+                      }
+                      cardName={cardName}
+                      deleteFn={() => {
+                        setCardProfiles(
+                          cardProfiles.filter((profile) => profile.id !== id),
+                        );
+                      }}
+                    />
                     <Link
                       to={{
                         pathname: `/${URL_PATH_SEGMENTS.CARD_PROFILE_EDIT}`,
