@@ -12,59 +12,9 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
-import { URL_PATH_SEGMENTS } from "@/constants";
+import { CARD_PROFILES, URL_PATH_SEGMENTS } from "@/constants";
 import { PlusIcon, Search } from "lucide-react";
-
-const CARD_PROFILES = [
-  {
-    id: "card-profile-1",
-    cardName: "Verve-1",
-    currency: "NGN",
-    expiration: "40 months",
-    binPrefix: 50611234,
-    dateCreated: "11/10/2024 23:21:03",
-  },
-  {
-    id: "card-profile-2",
-    cardName: "Verve-2",
-    currency: "USD",
-    expiration: "36 months",
-    binPrefix: 50611235,
-    dateCreated: "11/10/2024 23:22:15",
-  },
-  {
-    id: "card-profile-3",
-    cardName: "Mastercard-1",
-    currency: "EUR",
-    expiration: "48 months",
-    binPrefix: 50611236,
-    dateCreated: "11/10/2024 23:23:45",
-  },
-  {
-    id: "card-profile-4",
-    cardName: "Visa-1",
-    currency: "GBP",
-    expiration: "24 months",
-    binPrefix: 50611237,
-    dateCreated: "11/10/2024 23:24:30",
-  },
-  {
-    id: "card-profile-5",
-    cardName: "Amex-1",
-    currency: "USD",
-    expiration: "36 months",
-    binPrefix: 50611238,
-    dateCreated: "11/10/2024 23:25:12",
-  },
-  {
-    id: "card-profile-6",
-    cardName: "Discover-1",
-    currency: "CAD",
-    expiration: "48 months",
-    binPrefix: 50611239,
-    dateCreated: "11/10/2024 23:26:03",
-  },
-];
+import { Link } from "react-router";
 
 export function CardProfilePage() {
   return (
@@ -125,9 +75,16 @@ export function CardProfilePage() {
                     <button className="cursor-pointer rounded-lg p-1 text-base text-gray-600 hover:text-red-500">
                       <TrashIcon />
                     </button>
-                    <button className="cursor-pointer rounded-lg p-1 text-base text-gray-600 hover:bg-primary-200">
-                      <PencilIcon />
-                    </button>
+                    <Link
+                      to={{
+                        pathname: `/${URL_PATH_SEGMENTS.CARD_PROFILE_EDIT}`,
+                        search: `?id=${id}`,
+                      }}
+                    >
+                      <button className="cursor-pointer rounded-lg p-1 text-base text-gray-600 hover:bg-primary-200">
+                        <PencilIcon />
+                      </button>
+                    </Link>
                   </div>
                 </TableCell>
               </TableRow>

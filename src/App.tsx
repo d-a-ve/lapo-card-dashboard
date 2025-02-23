@@ -3,6 +3,7 @@ import { RootLayout } from "./components/ layout";
 import { URL_PATH_SEGMENTS } from "./constants";
 import { CardProfilePage } from "./pages/card-profile";
 import { CardProfileCreatePage } from "./pages/card-profile/create";
+import { CardProfileEditPage } from "./pages/card-profile/edit";
 import { CardRequestPage } from "./pages/card-request";
 import { CardRequestViewPage } from "./pages/card-request/view";
 import { Error404Page } from "./pages/error-404";
@@ -27,6 +28,10 @@ function App() {
           <Route
             path={URL_PATH_SEGMENTS.CARD_PROFILE_CREATE}
             element={<CardProfileCreatePage />}
+          />
+          <Route
+            path={URL_PATH_SEGMENTS.CARD_PROFILE_EDIT}
+            element={<CardProfileEditPage />}
           />
           <Route
             path={URL_PATH_SEGMENTS.CARD_REQUEST}
